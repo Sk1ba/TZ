@@ -53,4 +53,32 @@ Thunder Client:
 - DELETE /api/auth/delete-account/ - удаление аккаунта
 
 Авторизация:
-- GET /api/products/
+- GET /api/products/ - список товаров 
+- POST /api/products/ - создание товара
+
+Управление правами (только для админа)
+- POST /api/auth/access-rules/ - создание/обновление правил
+
+Примеры запроса:
+
+    Регистрация:
+        json
+            {
+                "email": "user@test.com",
+                "password": "123456",
+                "password2": "123456",
+                "first_name": "Имя",
+                "last_name": "Фамилия",
+                "patronymic": "Отчество"
+            }
+    
+    Управление правами:
+        json
+            {
+                "role": "user",
+                "resurs": "products",
+                "can_read": true,
+                "can_create": true,
+                "can_update": false,
+                "can_delete": false
+            }
